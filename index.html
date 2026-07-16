@@ -142,42 +142,96 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Games</p>
-          <h2 id="games-title">Snake protocol</h2>
+          <h2 id="games-title">Arcade Room</h2>
         </div>
-        <div class="scoreboard" aria-live="polite">
-          <span>Score <strong data-score>0</strong></span>
-          <span>Best <strong data-best>0</strong></span>
-          <span>Speed <strong data-speed>0</strong></span>
-        </div>
+        <p class="games-note">Snake Game 아래에 Pinball Game을 추가했어요.</p>
       </div>
 
-      <div class="game-layout">
-        <div class="game-stage">
-          <canvas id="game-canvas" width="600" height="600" aria-label="Snake game board"></canvas>
-          <div class="game-overlay" data-overlay>
-            <p class="overlay-title">Ready to launch</p>
-            <p class="overlay-copy">Start를 누르거나 방향키 / WASD / 터치를 사용하세요.</p>
+      <div class="games-stack">
+        <article class="game-card snake-card" aria-labelledby="snake-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Snake Game</p>
+              <h3 id="snake-title">Snake protocol</h3>
+            </div>
+            <div class="scoreboard" aria-live="polite">
+              <span>Score <strong data-score>0</strong></span>
+              <span>Best <strong data-best>0</strong></span>
+              <span>Speed <strong data-speed>0ms</strong></span>
+            </div>
           </div>
-        </div>
 
-        <aside class="game-panel">
-          <p class="game-note">
-            게임 추가 기능: 10초마다 속도가 조금씩 빨라져 난이도가 올라갑니다.
-          </p>
-          <div class="game-actions">
-            <button type="button" class="button button-primary" data-start>Start</button>
-            <button type="button" class="button" data-pause>Pause</button>
-            <button type="button" class="button" data-restart>Restart</button>
+          <div class="game-layout">
+            <div class="game-stage">
+              <canvas id="game-canvas" width="600" height="600" aria-label="Snake game board"></canvas>
+              <div class="game-overlay" data-overlay>
+                <p class="overlay-title">Ready to launch</p>
+                <p class="overlay-copy">Start를 누르거나 방향키 / WASD / 터치를 사용하세요.</p>
+              </div>
+            </div>
+
+            <aside class="game-panel">
+              <p class="game-note">
+                게임 추가 기능: 10초마다 속도가 조금씩 빨라져 난이도가 올라갑니다.
+              </p>
+              <div class="game-actions">
+                <button type="button" class="button button-primary" data-start>Start</button>
+                <button type="button" class="button" data-pause>Pause</button>
+                <button type="button" class="button" data-restart>Restart</button>
+              </div>
+              <p class="status" data-status>Not started</p>
+              <p class="hint">Controls: Arrow keys, WASD, mobile buttons. Reverse direction is blocked.</p>
+              <div class="touch-controls" aria-label="Mobile controls">
+                <button type="button" class="touch-btn up" data-dir="up">▲</button>
+                <button type="button" class="touch-btn left" data-dir="left">◀</button>
+                <button type="button" class="touch-btn right" data-dir="right">▶</button>
+                <button type="button" class="touch-btn down" data-dir="down">▼</button>
+              </div>
+            </aside>
           </div>
-          <p class="status" data-status>Not started</p>
-          <p class="hint">Controls: Arrow keys, WASD, mobile buttons. Reverse direction is blocked.</p>
-          <div class="touch-controls" aria-label="Mobile controls">
-            <button type="button" class="touch-btn up" data-dir="up">▲</button>
-            <button type="button" class="touch-btn left" data-dir="left">◀</button>
-            <button type="button" class="touch-btn right" data-dir="right">▶</button>
-            <button type="button" class="touch-btn down" data-dir="down">▼</button>
+        </article>
+
+        <article class="game-card pinball-card" id="pinball" aria-labelledby="pinball-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Pinball Game</p>
+              <h3 id="pinball-title">Space Pinball</h3>
+            </div>
+            <div class="scoreboard" aria-live="polite">
+              <span>Score <strong data-pinball-score>0</strong></span>
+              <span>Best <strong data-pinball-best>0</strong></span>
+              <span>State <strong data-pinball-state>Ready</strong></span>
+            </div>
           </div>
-        </aside>
+
+          <div class="game-layout pinball-layout">
+            <div class="game-stage pinball-stage">
+              <canvas id="pinball-canvas" width="640" height="780" aria-label="Pinball playfield"></canvas>
+              <div class="game-overlay" data-pinball-overlay>
+                <p class="overlay-title">Ready to shoot</p>
+                <p class="overlay-copy">Launch the ball, then use the left and right arrows to move the flippers.</p>
+              </div>
+            </div>
+
+            <aside class="game-panel">
+              <p class="game-note">
+                Inspired by Toy Theater's Space Pinball. [사람 확인 필요]
+              </p>
+              <div class="game-actions">
+                <button type="button" class="button button-primary" data-pinball-launch>Launch</button>
+                <button type="button" class="button" data-pinball-pause>Pause</button>
+                <button type="button" class="button" data-pinball-restart>Restart</button>
+              </div>
+              <p class="status" data-pinball-status>Ready</p>
+              <p class="hint">Controls: Left / Right arrows or A / D move the flippers. Space launches the ball.</p>
+              <div class="touch-controls pinball-controls" aria-label="Pinball controls">
+                <button type="button" class="touch-btn left" data-pinball-flipper="left">Left</button>
+                <button type="button" class="touch-btn" data-pinball-launch-touch>Launch</button>
+                <button type="button" class="touch-btn right" data-pinball-flipper="right">Right</button>
+              </div>
+            </aside>
+          </div>
+        </article>
       </div>
     </section>
 
