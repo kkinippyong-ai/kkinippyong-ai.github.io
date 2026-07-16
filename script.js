@@ -562,9 +562,9 @@
           pivot: { x: 204, y: 694 },
           length: 104,
           thickness: 14,
-          restAngle: -0.52,
-          activeAngle: -1.18,
-          angle: -0.52,
+          restAngle: 0.42,
+          activeAngle: -0.88,
+          angle: 0.42,
           pressed: false,
           keyActive: false,
           cooldown: 0,
@@ -574,9 +574,9 @@
           pivot: { x: 436, y: 694 },
           length: 104,
           thickness: 14,
-          restAngle: Math.PI + 0.52,
-          activeAngle: Math.PI + 1.18,
-          angle: Math.PI + 0.52,
+          restAngle: Math.PI - 0.42,
+          activeAngle: Math.PI + 0.88,
+          angle: Math.PI - 0.42,
           pressed: false,
           keyActive: false,
           cooldown: 0,
@@ -753,8 +753,8 @@
       if (!state.ball.launched) {
         state.ball.x = 512;
         state.ball.y = 656;
-        state.ball.vx = randomBetween(-120, -60);
-        state.ball.vy = randomBetween(-760, -680);
+        state.ball.vx = randomBetween(-110, -50);
+        state.ball.vy = randomBetween(-950, -860);
         state.ball.launched = true;
         state.status = 'running';
         syncScoreboard();
