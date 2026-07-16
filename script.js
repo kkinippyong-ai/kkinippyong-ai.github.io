@@ -14,9 +14,9 @@
   const dirButtons = document.querySelectorAll('[data-dir]');
 
   const boardSize = 20;
-  const baseDelay = 220;
-  const minDelay = 90;
-  const delayStep = 12;
+  const baseDelay = 240;
+  const minDelay = 80;
+  const delayStep = 30;
   const speedIntervalMs = 10000;
   const bestScoreKey = 'kkinippyong-snake-best';
 
@@ -108,7 +108,7 @@
   function syncScoreboard() {
     if (scoreEl) scoreEl.textContent = String(state.score);
     if (bestEl) bestEl.textContent = String(state.bestScore);
-    if (speedEl) speedEl.textContent = String(state.speedLevel);
+    if (speedEl) speedEl.textContent = `${state.delay}ms`;
   }
 
   function resetRound() {
