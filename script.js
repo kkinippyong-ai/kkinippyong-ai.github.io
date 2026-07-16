@@ -586,12 +586,18 @@
       bumpers: [
         { x: 214, y: 186, r: 24, score: 90, glow: '#5df4ff', cooldown: 0 },
         { x: 320, y: 136, r: 28, score: 140, glow: '#ffe04d', cooldown: 0 },
-        { x: 426, y: 186, r: 24, score: 90, glow: '#ff5fa2', cooldown: 0 }
+        { x: 426, y: 186, r: 24, score: 90, glow: '#ff5fa2', cooldown: 0 },
+        { x: 176, y: 288, r: 22, score: 110, glow: '#7aff72', cooldown: 0 },
+        { x: 468, y: 288, r: 22, score: 110, glow: '#5df4ff', cooldown: 0 }
       ],
       targets: [
         { x: 108, y: 92, w: 92, h: 34, score: 40, color: '#ffe04d', cooldown: 0 },
         { x: 272, y: 96, w: 96, h: 30, score: 55, color: '#5df4ff', cooldown: 0 },
-        { x: 430, y: 92, w: 92, h: 34, score: 40, color: '#7aff72', cooldown: 0 }
+        { x: 430, y: 92, w: 92, h: 34, score: 40, color: '#7aff72', cooldown: 0 },
+        { x: 112, y: 248, w: 88, h: 30, score: 60, color: '#ff5fa2', cooldown: 0 },
+        { x: 240, y: 310, w: 96, h: 32, score: 70, color: '#ffe04d', cooldown: 0 },
+        { x: 372, y: 248, w: 88, h: 30, score: 60, color: '#7aff72', cooldown: 0 },
+        { x: 500, y: 310, w: 90, h: 32, score: 70, color: '#5df4ff', cooldown: 0 }
       ]
     };
 
@@ -753,8 +759,8 @@
       if (!state.ball.launched) {
         state.ball.x = 512;
         state.ball.y = 656;
-        state.ball.vx = randomBetween(-110, -50);
-        state.ball.vy = randomBetween(-950, -860);
+        state.ball.vx = randomBetween(-90, -40);
+        state.ball.vy = randomBetween(-1220, -1080);
         state.ball.launched = true;
         state.status = 'running';
         syncScoreboard();
@@ -987,14 +993,14 @@
 
         ball.x = nearest.x + nx * limit;
         ball.y = nearest.y + ny * limit;
-        reflectBall(ball, nx, ny, item.pressed ? 1.22 : 1.02);
-        ball.vy -= item.pressed ? 340 : 180;
+        reflectBall(ball, nx, ny, item.pressed ? 1.34 : 1.12);
+        ball.vy -= item.pressed ? 460 : 240;
         if (side === 'left') {
-          ball.vx += item.pressed ? 220 : 110;
+          ball.vx += item.pressed ? 280 : 140;
         } else {
-          ball.vx -= item.pressed ? 220 : 110;
+          ball.vx -= item.pressed ? 280 : 140;
         }
-        ball.y -= 4;
+        ball.y -= 6;
       });
     }
 
