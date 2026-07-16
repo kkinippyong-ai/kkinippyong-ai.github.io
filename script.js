@@ -543,6 +543,8 @@
 
     const baseWidth = 640;
     const baseHeight = 780;
+    const drainStartY = 772;
+    const drainHalfWidth = 22;
     const bestScoreKey = 'kkinippyong-pinball-best';
 
     const state = {
@@ -873,7 +875,7 @@
       collideTargets(ball);
       collideFlippers(ball);
 
-      if (ball.y - ball.r > baseHeight + 30) {
+      if (ball.y + ball.r > drainStartY && Math.abs(ball.x - (baseWidth - 120)) < drainHalfWidth) {
         state.status = 'gameover';
         if (state.score > state.bestScore) {
           state.bestScore = state.score;
@@ -906,7 +908,7 @@
       }
       if (ball.y - ball.r < top) {
         ball.y = top + ball.r;
-        ball.vy = Math.abs(ball.vy) * 0.92;
+        ball.vy = Math.abs(ball.vy) * 1.08;
       }
     }
 
@@ -927,7 +929,7 @@
         const ny = dy / dist;
         ball.x = bumper.x + nx * minDist;
         ball.y = bumper.y + ny * minDist;
-        reflectBall(ball, nx, ny, 1.08);
+        reflectBall(ball, nx, ny, 1.18);
         score(bumper.score);
         bumper.cooldown = now + 180;
       });
@@ -985,13 +987,14 @@
 
         ball.x = nearest.x + nx * limit;
         ball.y = nearest.y + ny * limit;
-        reflectBall(ball, nx, ny, item.pressed ? 1.15 : 0.95);
-        ball.vy -= item.pressed ? 260 : 120;
+        reflectBall(ball, nx, ny, item.pressed ? 1.22 : 1.02);
+        ball.vy -= item.pressed ? 340 : 180;
         if (side === 'left') {
-          ball.vx += item.pressed ? 180 : 90;
+          ball.vx += item.pressed ? 220 : 110;
         } else {
-          ball.vx -= item.pressed ? 180 : 90;
+          ball.vx -= item.pressed ? 220 : 110;
         }
+        ball.y -= 4;
       });
     }
 
